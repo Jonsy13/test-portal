@@ -1,6 +1,6 @@
-## On-demand E2E Tests Commands
+# On-demand E2E Tests Commands
 
-# Here are the different commands that can be used for triggering Tests using github-actions:
+### Here are the different commands that can be used for triggering Tests using github-actions:
 
 <table>
   <tr>
@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <td>/run-unit</td>
-    <td>This commands is used for executing all unit tests using Cypress.</td>
+    <td>This command is used for executing all unit tests using Cypress.</td>
     <td>Moderate</td>
   </tr>
   <tr>
