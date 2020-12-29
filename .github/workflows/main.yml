@@ -126,7 +126,16 @@ jobs:
           working-directory: litmus-e2e/CypressE2E/
           config-file: cypress.prod.json
 
-      - name: Install Cypress and run all tests
+      - name: Teaming and Account Settings Tests
+        if: startsWith(github.event.comment.body, '/run-e2e-Settings')
+        uses: cypress-io/github-action@v2
+        continue-on-error: false
+        with:
+          spec: cypress/integration/Parallel_Tests/Account_Settings/*.spec.js
+          working-directory: litmus-e2e/CypressE2E/
+          config-file: cypress.prod.json
+
+      - name: Run all E2E tests
         if: startsWith(github.event.comment.body, '/run-e2e-all')
         uses: cypress-io/github-action@v2
         continue-on-error: false

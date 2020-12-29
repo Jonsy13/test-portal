@@ -19,6 +19,11 @@
     <td>Depends on Changes in the PR ( If changes are done in frontend, It can take more than 11 mins.), moderate in other cases.</td>
   </tr>
   <tr>
+    <td>/run-e2e-Settings</td>
+    <td>This Command is used for executing all Settings and Teaming Related e2e-tests using Cypress by building and deploying the respective PR in a KinD Cluster.</td>
+    <td>Depends on Changes in the PR ( If changes are done in frontend, It can take more than 11 mins.), moderate in other cases.</td>
+  </tr>
+  <tr>
     <td>/run-e2e-all</td>
     <td>This Command is used for executing all e2e-tests using Cypress by building and deploying the respective PR in a KinD Cluster.</td>
     <td>Depends on Changes in the PR ( If changes are done in frontend, It can take more than 11 mins.), moderate in other cases.</td>
