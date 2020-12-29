@@ -1,5 +1,5 @@
 welcomeModal:
-  title: Welcome to Litmus Portal,
+  title: Welcome to,
   info: What do you want to name your project?
   button:
     continue: Continue
