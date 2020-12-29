@@ -6,7 +6,7 @@ import (
 	"github.com/litmuschaos/litmus/litmus-portal/authentication/pkg/models"
 )
 
-// Config authorization configuration parameters
+// Config authorization configuration param
 type Config struct {
 	// access token expiration time, 0 means it doesn't expire
 	AccessTokenExp time.Duration
