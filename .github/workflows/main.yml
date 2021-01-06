@@ -77,7 +77,9 @@ jobs:
       - name: Deploying the litmus-portal for E2E testing
         if: startsWith(github.event.comment.body, '/run-e2e')
         run: |
-          kubectl apply -f ./.github/cluster-k8s-manifest.yml
+          wget https://raw.githubusercontent.com/litmuschaos/litmus/master/litmus-portal/cluster-k8s-manifest.yml
+          sed -i 's/Always/IfNotPresent/g' cluster-k8s-manifest.yml
+          kubectl apply -f cluster-k8s-manifest.yml
           kubectl get pods -n litmus
           kubectl get deployments -o wide -n litmus
           kubectl wait --for=condition=Ready pods --all --namespace litmus --timeout=120s
@@ -118,7 +120,7 @@ jobs:
            git clone https://github.com/litmuschaos/litmus-e2e.git -b litmus-portal
 
       - name: Running basic tests (Login and Welcome Modal Tests)
-        if: startsWith(github.event.comment.body, '/run-e2e-AuthTests') || startsWith(github.event.comment.body, '/run-e2e-all')
+        if: startsWith(github.event.comment.body, '/run-e2e-AuthTests') || startsWith(github.event.comment.body, '/run-e2e')
         uses: cypress-io/github-action@v2
         continue-on-error: false
         with:
@@ -146,8 +148,7 @@ jobs:
 
       - name: Check the test run
         if: |
-         startsWith(github.event.comment.body, '/run-unit') || startsWith(github.event.comment.body, '/run-e2e-basicTests') || 
-         startsWith(github.event.comment.body, '/run-e2e-all')
+         startsWith(github.event.comment.body, '/run-unit') || startsWith(github.event.comment.body, '/run-e2e')
         run: |
           echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`" 
           echo ::set-env name=TEST_RUN::true
