@@ -13,7 +13,7 @@ import (
 	"github.com/litmuschaos/litmus/litmus-portal/authentication/pkg/types"
 )
 
-// JWTAccessClaims jwt claims
+// JWTAccessClaims jwt cla
 type JWTAccessClaims struct {
 	UserName string `json:"username,omitempty"`
 	Email    string `json:"email,omitempty"`
